@@ -35,6 +35,28 @@ function getMax(arr, compare) {
   return max;
 }
 
+// simplyfy getMax V.
+/** COMPARE
+ * compare (a,b)
+ * if a > b ret positive number
+ * if b > a ret negative number
+ * if a === b ret 0
+ */
+
+function getMax(arr, compare) {
+  let max = arr[0];
+  let i = 1;
+
+  while (i < arr.length) {
+    if (compare(arr[i], max) > 0) {
+      max = arr[i];
+    }
+    i++;
+  }
+  return max;
+}
+
+
 function getMin(arr, compare) {
   let min = arr[0];
   let i = 1;
@@ -96,6 +118,16 @@ function compareByGenres(album1, album2) {
 
   return 0;
 }
+
+// simplyfy compareByGenres V.
+
+function compareByGenres(album1, album2) {
+  const n1 = album1.genres.length;
+  const n2 = album2.genres.length;
+  return n1-n2;
+}
+
+
 
 export function getAlbumWithMostOfGenres(albums) {
   const mostOfGenres = getMax(albums, compareByGenres);
