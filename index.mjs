@@ -1,9 +1,9 @@
 import {
   getAlbumByGenre,
-  getAlbumWithArtist,
+  getAlbumWithArtistName,
   getAlbumWithFewestGenres,
   getAlbumWithMostOfGenres,
-  getAlbumWithTeMostOfSale,
+  getAlbumWithMostOfSale,
   getAlbumWithYearOf,
 } from "./commands.mjs";
 
@@ -75,13 +75,13 @@ if (command === "most-genre") {
 } else if (command === "fewest-genre") {
   getAlbumWithFewestGenres(bestSellingAlbums);
 } else if (command === "most-sale") {
-  getAlbumWithTeMostOfSale(bestSellingAlbums);
+  getAlbumWithMostOfSale(bestSellingAlbums);
 } else if (command === "year") {
   const year = Number(process.argv[3]);
   getAlbumWithYearOf(bestSellingAlbums, year);
 } else if (command === "artist") {
   const artist = process.argv[3];
-  getAlbumWithArtist(bestSellingAlbums, artist);
+  getAlbumWithArtistName(bestSellingAlbums, artist);
 } else if (command === "genre") {
   const genre = process.argv[3];
   getAlbumByGenre(bestSellingAlbums, genre);
