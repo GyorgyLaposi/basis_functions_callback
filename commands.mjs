@@ -85,7 +85,7 @@ function getByKeyValue(arr, key, value) {
 // MAX GENRE GENERALIZATION IV
 
 function compareByGenres(album1, album2) {
-  const n1 = album1.genres.lenth;
+  const n1 = album1.genres.length;
   const n2 = album2.genres.length;
 
   if (n1 > n2) {
