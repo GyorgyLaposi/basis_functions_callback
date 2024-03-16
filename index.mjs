@@ -20,7 +20,7 @@ const bestSellingAlbums = [
     artist: "AC/DC",
     title: "Back in Black",
     year: 1980,
-    genres: ["hard rock"],
+    genres: ["hard rock",],
     sale: 50000000,
   },
   {
