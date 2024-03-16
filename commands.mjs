@@ -16,11 +16,11 @@
 // MAX search general II
 
 /** COMPARE
-* compare (a,b)
-* if a > b ret 1
-* if b > a ret -1
-* if a === b ret 0
-*/
+ * compare (a,b)
+ * if a > b ret 1
+ * if b > a ret -1
+ * if a === b ret 0
+ */
 
 function getMax(arr, compare) {
   let max = arr[0];
@@ -60,7 +60,6 @@ function searchByKeyValue(arr, key, value) {
   }
 }
 
-
 // ÁLTALÁNOSÍTÁS III a for ciklusokat általánosítjuk, hogy ne kelljen konkrét kulcs érték párt összehhasonlítani
 
 function getByKeyValue(arr, key, value) {
@@ -72,9 +71,8 @@ function getByKeyValue(arr, key, value) {
   }
 }
 
-
 // MAX GENRE GENERALIZATION III
-export function getAlbumWithMostOfGenres(albums) {
+/* export function getAlbumWithMostOfGenres(albums) {
   let mostOfGenres = albums[0];
   for (let i = 0; i < albums.length; i++) {
     if (albums[i].genres.length > mostOfGenres.genres.length) {
@@ -82,12 +80,30 @@ export function getAlbumWithMostOfGenres(albums) {
     }
   }
   console.log("Most of genre III", mostOfGenres.title);
-}
+} */
 
 // MAX GENRE GENERALIZATION IV
 
+function compareByGenres(album1, album2) {
+  const n1 = album1.genres.lenth;
+  const n2 = album2.genres.length;
+
+  if (n1 > n2) {
+    return 1; 
+  } else if (n2 > n1) {
+    return -1;
+  }
+
+  return 0;
+}
+
+export function getAlbumWithMostOfGenres(albums) {
+  const mostOfGenres = getMax(albums, compareByGenres);
+  console.log("Most of genre IV", mostOfGenres.title);
+}
+
 // MOST SALE GENERALIZATION III
-export function getAlbumWithMostOfSales(albums) {
+export function getAlbumWithMostOfSale(albums) {
   let mostOfSale = albums[0];
   for (let i = 0; i < albums.length; i++) {
     if (albums[i].sale > mostOfSale.sale) {
@@ -98,7 +114,7 @@ export function getAlbumWithMostOfSales(albums) {
 }
 
 //MIN GENRE GENERALIZATION III
-export function getAlbumWithFewestgenre(albums) {
+export function getAlbumWithFewestGenres(albums) {
   let minOfGenres = albums[0];
   for (let i = 0; i < albums.length; i++) {
     if (albums[i].genres.length < minOfGenres.genres.length) {
@@ -109,20 +125,20 @@ export function getAlbumWithFewestgenre(albums) {
 }
 
 // search album by year GENERALIZATION III
-export function getAlbumWithYearOF(albums, year) {
+export function getAlbumWithYearOf(albums, year) {
   const album = getByKeyValue(albums, "year", year);
   console.log("By year", album.title);
 }
 
 // search album by artist GENERALIZATION III
 export function getAlbumWithArtistName(albums, artist) {
-  const album = getByKeyValue(albums, 'artist', artist);
+  const album = getByKeyValue(albums, "artist", artist);
   console.log("By artist", album.title);
 }
 
 // search album by title GENERALIZATION III
 export function getAlbumByTitle(albums, title) {
-  const album = getByKeyValue(albums, 'title', title);
+  const album = getByKeyValue(albums, "title", title);
   console.log("By title", album.title);
 }
 
