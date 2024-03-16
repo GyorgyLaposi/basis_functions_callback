@@ -213,9 +213,17 @@ export function getAlbumWithYearOf(albums, byYear) {
 
 
 // search album by artist GENERALIZATION III
-export function getAlbumWithArtistName(albums, artist) {
+/* export function getAlbumWithArtistName(albums, artist) {
   const album = getByKeyValue(albums, "artist", artist);
   console.log("By artist", album.title);
+} */
+
+// search album by artist GENERALIZATION IV
+export function getAlbumWithArtistName(albums, artist) {
+  const album = search(albums, function (album){
+    return album.artist === artist;
+  });
+  console.log("By artist IV", album.title);
 }
 
 // search album by title GENERALIZATION III
