@@ -35,7 +35,7 @@
   return max;
 } */
 
-// simplyfy getMax V.
+// simplify getMax V.
 /** COMPARE
  * compare (a,b)
  * if a > b ret positive number
@@ -119,7 +119,7 @@ function getByKeyValue(arr, key, value) {
   return 0; 
 }*/
 
-// simplyfy compareByGenres V.
+// simplify compareByGenres V.
 
 function compareByGenres(album1, album2) {
   const n1 = album1.genres.length;
@@ -130,20 +130,32 @@ function compareByGenres(album1, album2) {
 
 
 export function getAlbumWithMostOfGenres(albums) {
-  const mostOfGenres = getMax(albums, compareByGenres);
+  const mostOfGenres = getMax(albums, compareByGenres); // az V. módosítás már csak a compareByGenrest érintette!
   console.log("Most of genre IV", mostOfGenres.title);
 }
 
 // MOST SALE GENERALIZATION III
-export function getAlbumWithMostOfSale(albums) {
+/* export function getAlbumWithMostOfSale(albums) {
   let mostOfSale = albums[0];
   for (let i = 0; i < albums.length; i++) {
     if (albums[i].sale > mostOfSale.sale) {
       mostOfSale = albums[i];
     }
   }
-  console.log("Most of sale III", mostOfSale.title);
+  console.log("Most of sale III", mostOfSale.title);  
+} */
+
+// simplify compareBySale
+function compareBySale(a1,a2){
+  return a1.sale-a2.sale;
 }
+
+// MOST SALE GENERALIZATION IV - V.
+export function getAlbumWithMostOfSale(albums) {
+  const mostOfSale = getMax(albums,compareBySale)
+  console.log("Most of sale IV-V", mostOfSale.title);
+}
+
 
 //MIN GENRE GENERALIZATION III
 export function getAlbumWithFewestGenres(albums) {
