@@ -22,7 +22,7 @@
  * if a === b ret 0
  */
 
-function getMax(arr, compare) {
+/* function getMax(arr, compare) {
   let max = arr[0];
   let i = 1;
 
@@ -33,7 +33,7 @@ function getMax(arr, compare) {
     i++;
   }
   return max;
-}
+} */
 
 // simplyfy getMax V.
 /** COMPARE
@@ -106,7 +106,7 @@ function getByKeyValue(arr, key, value) {
 
 // MAX GENRE GENERALIZATION IV
 
-function compareByGenres(album1, album2) {
+/* function compareByGenres(album1, album2) {
   const n1 = album1.genres.length;
   const n2 = album2.genres.length;
 
@@ -116,8 +116,8 @@ function compareByGenres(album1, album2) {
     return -1;
   }
 
-  return 0;
-}
+  return 0; 
+}*/
 
 // simplyfy compareByGenres V.
 
