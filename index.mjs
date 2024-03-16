@@ -5,6 +5,7 @@ import {
   getAlbumWithMostOfGenres,
   getAlbumWithMostOfSale,
   getAlbumWithYearOf,
+  getAlbumByTitle,
 } from "./commands.mjs";
 
 // got this from an api
@@ -20,7 +21,7 @@ const bestSellingAlbums = [
     artist: "AC/DC",
     title: "Back in Black",
     year: 1980,
-    genres: ["hard rock",],
+    genres: ["hard rock"],
     sale: 50000000,
   },
   {
@@ -85,6 +86,9 @@ if (command === "most-genre") {
 } else if (command === "genre") {
   const genre = process.argv[3];
   getAlbumByGenre(bestSellingAlbums, genre);
+} else if (command === 'title'){
+  const title = process.argv[3];
+  getAlbumByTitle(bestSellingAlbums, title);
 } else {
   console.log("i do not understand", command);
 }

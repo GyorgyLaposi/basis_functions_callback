@@ -83,13 +83,14 @@ function searchByKeyValue(arr, key, value) {
 //Generalization IV search by condition
 // a fentinél álltaláosabb
 function search(arr, condition) {
-  for (const item of arr) { // for of ciklussal bejárjuk a tömböt
+  for (const item of arr) {
+    // for of ciklussal bejárjuk a tömböt
     if (condition(item)) {
       return item;
     }
   }
   // optional ha egyik elemre sem igaz a feltétel
-  return null; 
+  return null;
 }
 // ÁLTALÁNOSÍTÁS III a for ciklusokat általánosítjuk, hogy ne kelljen konkrét kulcs érték párt összehhasonlítani
 
@@ -165,7 +166,8 @@ function compareBySale(a1, a2) {
 
 // MOST SALE GENERALIZATION VI
 export function getAlbumWithMostOfSale(albums) {
-  const mostOfSale = getMax(albums, function (a1,a2 ){ // nameless inline function
+  const mostOfSale = getMax(albums, function (a1, a2) {
+    // nameless inline function
     return a1.sale - a2.sale;
   });
   console.log("Most of sale VI", mostOfSale.title);
@@ -205,12 +207,12 @@ export function getAlbumWithFewestGenres(albums) {
 
 // search album by year GENERALIZATION V
 export function getAlbumWithYearOf(albums, byYear) {
-  const album = search(albums,function (album){ // nameless inline function
-    return album.year === byYear;  
+  const album = search(albums, function (album) {
+    // nameless inline function
+    return album.year === byYear;
   });
   console.log("By year V", album.title);
 }
-
 
 // search album by artist GENERALIZATION III
 /* export function getAlbumWithArtistName(albums, artist) {
@@ -220,17 +222,27 @@ export function getAlbumWithYearOf(albums, byYear) {
 
 // search album by artist GENERALIZATION IV
 export function getAlbumWithArtistName(albums, artist) {
-  const album = search(albums, function (album){
+  const album = search(albums, function (album) {
     return album.artist === artist;
   });
   console.log("By artist IV", album.title);
 }
 
 // search album by title GENERALIZATION III
-export function getAlbumByTitle(albums, title) {
+/* export function getAlbumByTitle(albums, title) {
   const album = getByKeyValue(albums, "title", title);
   console.log("By title", album.title);
+} */
+
+// search album by title GENERALIZATION IV
+export function getAlbumByTitle(albums, title) {
+  const album = search(albums,function (album){
+    return album.title === title;
+  });
+  console.log("By title IV", album.title);
 }
+
+
 
 // search album by byGenre GENERALIZATION II (can't use getByKeyValue too specific!)
 export function getAlbumByGenre(albums, byGenre) {
