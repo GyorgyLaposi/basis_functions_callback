@@ -236,16 +236,14 @@ export function getAlbumWithArtistName(albums, artist) {
 
 // search album by title GENERALIZATION IV
 export function getAlbumByTitle(albums, title) {
-  const album = search(albums,function (album){
+  const album = search(albums, function (album) {
     return album.title === title;
   });
   console.log("By title IV", album.title);
 }
 
-
-
 // search album by byGenre GENERALIZATION II (can't use getByKeyValue too specific!)
-export function getAlbumByGenre(albums, byGenre) {
+/* export function getAlbumByGenre(albums, byGenre) {
   let found = false;
   for (let i = 0; i < albums.length; i++) {
     for (let j = 0; j < albums[i].genres.length; j++) {
@@ -259,4 +257,12 @@ export function getAlbumByGenre(albums, byGenre) {
       break;
     }
   }
+} */
+
+// search album by byGenre GENERALIZATION III
+export function getAlbumByGenre(albums, byGenre) {
+  const album = search(albums, function (album) {
+    return album.genres.includes(byGenre); // includes built in function primiitívekhez jó ==> number, string
+  });
+  console.log("By genre III", album.title);
 }
