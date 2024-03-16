@@ -70,9 +70,8 @@ function getMin(arr, compare) {
   return min;
 }
 
-// condition(album) ---> true/false
-function search(arr, condition) {}
-
+// Generalization III search by parameters
+//egy adott tömb bármely kulcsának az értékét adja vissza, ha a megadott és a kulcs érték ugyanaz.
 function searchByKeyValue(arr, key, value) {
   for (let i = 0; i < arr.length; i++) {
     if (arr[i][key] === value) {
@@ -81,6 +80,17 @@ function searchByKeyValue(arr, key, value) {
   }
 }
 
+//Generalization IV search by condition
+// a fentinél álltaláosabb
+function search(arr, condition) {
+  for (const item of arr) { // for of ciklussal bejárjuk a tömböt
+    if (condition(item)) {
+      return item;
+    }
+  }
+  // optional ha egyik elemre sem igaz a feltétel
+  return null; 
+}
 // ÁLTALÁNOSÍTÁS III a for ciklusokat általánosítjuk, hogy ne kelljen konkrét kulcs érték párt összehhasonlítani
 
 function getByKeyValue(arr, key, value) {
@@ -166,15 +176,33 @@ export function getAlbumWithMostOfSale(albums) {
 
 //MIN GENRE GENERALIZATION IV-V.
 export function getAlbumWithFewestGenres(albums) {
-  let minOfGenres = getMin(albums,compareByGenres);
+  let minOfGenres = getMin(albums, compareByGenres);
   console.log("Fewest genre IV-V", minOfGenres.title);
 }
 
 // search album by year GENERALIZATION III
-export function getAlbumWithYearOf(albums, year) {
+/* export function getAlbumWithYearOf(albums, year) {
   const album = getByKeyValue(albums, "year", year);
   console.log("By year", album.title);
+} */
+
+// search album by year GENERALIZATION IV
+/* export function getAlbumWithYearOf(albums, byYear) {
+  function yearCondition(album){ 
+    return album.year === byYear;  
+  }
+  const album = search(albums,yearCondition);
+  console.log("By year IV", album.title);
+} */
+
+// search album by year GENERALIZATION V
+export function getAlbumWithYearOf(albums, byYear) {
+  const album = search(albums,function (album){ // nameless inline function
+    return album.year === byYear;  
+  });
+  console.log("By year V", album.title);
 }
+
 
 // search album by artist GENERALIZATION III
 export function getAlbumWithArtistName(albums, artist) {
