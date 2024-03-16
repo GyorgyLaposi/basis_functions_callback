@@ -158,9 +158,17 @@ function compareBySale(a1, a2) {
 }
 
 // MOST SALE GENERALIZATION IV - V.
-export function getAlbumWithMostOfSale(albums) {
+/* export function getAlbumWithMostOfSale(albums) {
   const mostOfSale = getMax(albums, compareBySale);
   console.log("Most of sale IV-V", mostOfSale.title);
+} */
+
+// MOST SALE GENERALIZATION VI
+export function getAlbumWithMostOfSale(albums) {
+  const mostOfSale = getMax(albums, function (a1,a2 ){ // nameless inline function
+    return a1.sale - a2.sale;
+  });
+  console.log("Most of sale VI", mostOfSale.title);
 }
 
 //MIN GENRE GENERALIZATION III
