@@ -18,7 +18,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "args": ["most-genre"],
+      "args": ["title", "Hotel California"],
       "program": "${workspaceFolder}/index.mjs"
     }
   ]
