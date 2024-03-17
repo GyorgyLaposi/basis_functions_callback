@@ -272,3 +272,14 @@ export function getAlbumByGenre(albums, byGenre) {
   });
   console.log("By genre III", album.title);
 }
+
+//transformer(a) -> b
+function transform(arr, transformer){
+  return []
+
+}
+
+transform([1,2,3,4,5,6], (num) => num * 2);
+
+
+
