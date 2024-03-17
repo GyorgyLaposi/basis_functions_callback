@@ -86,7 +86,7 @@ if (command === "most-genre") {
 } else if (command === "genre") {
   const genre = process.argv[3];
   getAlbumByGenre(bestSellingAlbums, genre);
-} else if (command === 'title'){
+} else if (command === "title") {
   const title = process.argv[3];
   getAlbumByTitle(bestSellingAlbums, title);
 } else {
