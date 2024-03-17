@@ -239,15 +239,14 @@ export function getAlbumWithArtistName(albums, artist) {
   const album = search(albums, function (album) {
     return album.title === title;
   });
-  console.log("By title IV", album.title);
-} */ 
+  console.log("Album by title", album.title);
+} */
 
-// earch album by title GENERALIZATION IV
+// earch album by title GENERALIZATION IV with arrow function
 export function getAlbumByTitle(albums, title) {
   const found = search(albums, (album) => album.title === title);
   console.log("By title with arrow function", found.title);
 }
-
 
 // search album by byGenre GENERALIZATION II (can't use getByKeyValue too specific!)
 /* export function getAlbumByGenre(albums, byGenre) {
